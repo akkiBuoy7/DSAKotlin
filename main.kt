@@ -1,3 +1,5 @@
+import algos.binarySearch
+import algos.bubbleSort
 import basics.*
 
 fun main(args: Array<String>) {
@@ -80,15 +82,15 @@ fun main(args: Array<String>) {
     println("$input is palindrome : ${palindrome(input)}")
     println()
     println("Reversed array is : ")
-    val arrToReverse = arrayOf(1,2,3,4,5)
-    val arrToReverse2 = arrayOf(0,10,20,30)
+    val arrToReverse = arrayOf(1, 2, 3, 4, 5)
+    val arrToReverse2 = arrayOf(0, 10, 20, 30)
     val reversedArray1 = reverseArrayUsingSwap(arrToReverse)
-    for (i in reversedArray1){
+    for (i in reversedArray1) {
         print("$i ")
     }
     println()
     val reversedArray2 = reverseArrayUsingLoop(arrToReverse2)
-    for (j in reversedArray2){
+    for (j in reversedArray2) {
         print("$j ")
     }
 
@@ -103,12 +105,39 @@ fun main(args: Array<String>) {
     }
     println()
     println("Top 3 max values are:")
-    getTop3MaxValues(intArrayOf(10,55,200,9,550,900,45,30)).forEach { v ->
+    getTop3MaxValues(intArrayOf(10, 55, 200, 9, 550, 900, 45, 30)).forEach { v ->
         print("$v ")
     }
     println()
     println("Top 3 min values are:")
-    getTop3MinValues(intArrayOf(10,55,200,9,550,900,45,30)).forEach { v ->
+    getTop3MinValues(intArrayOf(10, 55, 200, 9, 550, 900, 45, 30)).forEach { v ->
         print("$v ")
+    }
+    println()
+    println("Max min in single iteration :")
+    val p = getMaxMin(intArrayOf(10, 55, 200, 9, 550, 900, 45, 30))
+    println("${p.first}  :: ${p.second}")
+    println()
+    println("Sort zeros to end :")
+    val r = sortZeroToEnd(intArrayOf(10, 55, 0, 200, 9, 55, 0, 900, 45, 30))
+    r.forEach { i ->
+        print("$i ")
+    }
+    println()
+    println("Binary search:")
+    val targetIndex = binarySearch(intArrayOf(10, 25, 55, 60, 100, 66), 55)
+
+    if (targetIndex == -1) {
+        println("Not found in binary search")
+    } else {
+        println("target in binary search is at index $targetIndex")
+    }
+
+    println()
+    println("Bubble Sort:")
+
+    val bubbleSortedArray = bubbleSort(intArrayOf(103, 251, 55, 60, 100, 66))
+    bubbleSortedArray.forEach { i ->
+        print("$i ")
     }
 }

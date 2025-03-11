@@ -52,3 +52,17 @@ fun getTop3MinValues(input: IntArray): IntArray {
     }
     return intArrayOf(first, second, third)
 }
+
+fun getMaxMin(input: IntArray): Pair<Int, Int> {
+    var max = Int.MIN_VALUE
+    var min = Int.MAX_VALUE
+
+    input.forEach { d ->
+        if (d < min) {
+            min = d
+        } else if (d > max) {
+            max = d
+        }
+    }
+    return Pair(max, min)
+}
